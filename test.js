@@ -45,19 +45,41 @@
 //   },
 // };
 
-let obj = {};
+// let obj = {};
 
-Object.defineProperty(obj, "firstName", {
-  value: "Abdulaziz",
-  writable: true,
-  enumerable: false,
-  configurable: false,
-});
+// Object.defineProperty(obj, "firstName", {
+//   value: "Abdulaziz",
+//   writable: true,
+//   enumerable: false,
+//   configurable: false,
+// });
 
-obj.firstName = "Azizbek";
-delete obj.firstName;
+// obj.firstName = "Azizbek";
+// delete obj.firstName;
 
-for (let key in obj) {
-  console.log(key);
-}
-console.log(obj);
+// for (let key in obj) {
+//   console.log(key);
+// }
+// console.log(obj);
+
+// Object.getOwnPropertyDescriptor;
+
+// !Enumerable properties
+// let person = {
+//     firstName: "Abdulaziz",
+//     lastName: "Programmer"
+//   };
+
+//   // `age` xususiyatini `enumerable: false` qilib o'rnatish
+//   Object.defineProperty(person, "age", {
+//     value: 30,
+//     enumerable: false // `age` xususiyati tsikllarda ko'rinmaydi
+//   });
+
+//   // `for...in` tsikli
+//   for (let key in person) {
+//     console.log(key); // "firstName", "lastName" (lekin "age" ko'rinmaydi)
+//   }
+
+//   // `Object.keys()`
+//   console.log(Object.keys(person)); // ["firstName", "lastName"] ("age" kiritilmagan)
