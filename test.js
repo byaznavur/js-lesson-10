@@ -83,3 +83,27 @@
 
 //   // `Object.keys()`
 //   console.log(Object.keys(person)); // ["firstName", "lastName"] ("age" kiritilmagan)
+
+// ? Shallow and Deep copy
+
+// let obj = {
+//   name: "Azizbek",
+//   lastName: "Abduhakimov ",
+// };
+
+// let copyObj = obj;
+
+// copyObj.name = "Toshpulatov";
+// console.log(copyObj);
+// console.log(obj);
+
+// * Muammo shundaki ikkita objectni ham qiymati o'zgarib ketadi
+
+// let original = { name: "Abdulaziz", age: 30 };
+// let copy = { ...original };
+
+// console.log(copy); // { name: "Abdulaziz", age: 30 }
+
+// // Original ob'ektning xususiyatlarini o'zgartirish nusxaga ta'sir qilmaydi
+// original.age = 40;
+// console.log(copy.age); // 30
