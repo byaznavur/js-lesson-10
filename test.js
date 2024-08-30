@@ -107,3 +107,27 @@
 // // Original ob'ektning xususiyatlarini o'zgartirish nusxaga ta'sir qilmaydi
 // original.age = 40;
 // console.log(copy.age); // 30
+
+// Constructor
+
+function Person(firstName, lastName, middleName, age, weight) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.middleName = middleName;
+  this.age = age;
+  this.weight = weight;
+
+  if (!new.target) {
+    return new Person(firstName, lastName, middleName, age, weight);
+  }
+  this.getInfo = function () {
+    return `${this.firstName} ${this.lastName}'s age is ${this.age}`;
+  };
+}
+
+let p0 = Person("Azizbek ", "Abduhakimov", "Bakhtiyarovich", 19, 70);
+let p1 = Person("Abror ", "Abduhakimov", "Bakhtiyarovich", 23, 70);
+
+let people = [p0, p1];
+
+console.log(p0);
