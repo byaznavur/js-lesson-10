@@ -120,10 +120,10 @@ function Person(firstName, lastName, middleName, age, weight) {
   if (!new.target) {
     return new Person(firstName, lastName, middleName, age, weight);
   }
-  this.getInfo = function () {
-    return `${this.firstName} ${this.lastName}'s age is ${this.age}`;
-  };
 }
+Person.prototype.getInfo = function () {
+  return `${this.firstName} ${this.lastName}'s age is ${this.age}`;
+};
 
 let p0 = Person("Azizbek ", "Abduhakimov", "Bakhtiyarovich", 19, 70);
 let p1 = Person("Abror ", "Abduhakimov", "Bakhtiyarovich", 23, 70);
