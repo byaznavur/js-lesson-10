@@ -168,12 +168,85 @@ console.log(str.has("Azizbek"));
 
 //! repeat → rpt
 
-let strRpt = "Aziz";
-String.prototype.rpt = function (n) {
-  let res = "";
-  for (let i = 0; i < n; i++) {
-    res += this + " ";
-  }
-  return res;
-};
-console.log(strRpt.rpt(3));
+// let strRpt = "Aziz";
+// String.prototype.rpt = function (n) {
+//   let res = "";
+//   for (let i = 0; i < n; i++) {
+//     res += this + " ";
+//   }
+//   return res;
+// };
+// console.log(strRpt.rpt(3));
+
+// ! Number constructoriga quyidagi metodlarni qo’shing.
+
+//! toFixed -> fixed
+
+// Number.prototype.fixed = function (n) {
+//   let numFixed = this.toString().split(".");
+//   let fixedNum = numFixed[0] + "." + numFixed[1].slice(0, n);
+
+//   if (n == 0 || n == null || n > numFixed[1].length ) {
+//     return +numFixed[0];
+//   }
+//   return +fixedNum;
+// };
+// let num = 2123.3123;
+// console.log(num.fixed(5));
+
+// ! round 4.567 → 5, 10.102 → 10
+// Number.prototype.round = function () {
+//   let numSplit = this.toString().split(".");
+//   let integerPart = +numSplit[0];
+//   if (!numSplit[1]) {
+//     return integerPart;
+//   }
+//   let decimalPart = +("0." + numSplit[1]);
+//   if (decimalPart >= 0.5) {
+//     return integerPart + 1;
+//   } else {
+//     return integerPart;
+//   }
+// };
+
+// let num = 123.122;
+
+// console.log(num.round()); // Output: 124
+
+// Number.prototype.isSquare = function () {
+//   let numIs = this;
+
+//   let numRes = numIs ** (1 / 2);
+//   let check = Number.isInteger(numIs ** (1 / 2));
+
+//   if (check) {
+//     return numRes;
+//   } else {
+//     return "Ildiz chiqmaydi";
+//   }
+// };
+
+// let num = 1324;
+// console.log(num.isSquare()); // 4
+
+// Number.prototype.count = function () {
+//   let numCount = this.toString().split("");
+//   return numCount.length;
+// };
+
+// let num = 123456789;
+// console.log(num.count());
+
+// Number.prototype.sum = function () {
+//   let numSum = this.toString().split("");
+
+//   let sum = 0;
+//   for (let el of numSum) {
+//     sum += +el;
+//   }
+
+//   return sum;
+// };
+
+// let num = 123456789;
+// console.log(num.sum());
