@@ -1,5 +1,7 @@
 //! String.toLowerCase → lowerCase
 
+const { FigureImage } = require("react-bootstrap");
+
 // let str = "Aziz Abduhakimov";
 
 // String.prototype.lowerCase = function () {
@@ -250,3 +252,124 @@ console.log(str.has("Azizbek"));
 
 // let num = 123456789;
 // console.log(num.sum());
+
+//! Array constructoriga quyidagi metodlarni custom variantini qo’shing.
+
+// Array.prototype.cutomMap = function (callback) {
+//   let newArr = [];
+//   for (let el of this) {
+//     newArr.push(callback(el, i, this));
+//   }
+//   return newArr;
+// };
+// let arr = [1, 2, 4, 5];
+// let mapArr = arr.cutomMap((el, i, arr) => {
+//   return el / 2;
+// });
+// console.log(mapArr, i);
+
+//  ! = = = = = = = = =
+
+// Array.prototype.customMap = function (callback) {
+//   let newArr = [];
+//   for (let i = 0; i < this.length; i++) {
+//     newArr.push(callback(this[i], i, this));
+//   }
+//   return newArr;
+// };
+
+// let arr = [1, 2, 4, 5];
+// let mapArr = arr.customMap((el, i, arr) => {
+//   return el / 2;
+// });
+
+// console.log(mapArr); // Natija: [0.5, 1, 2, 2.5]
+
+// ! every → customEvery
+
+// ! every → customEvery
+
+// Array.prototype.customEvery = function (callback) {
+//   for (let i = 0; i < this.length; i++) {
+//     let el = this[i];
+//     let check = callback(el, i, this);
+//     if (!check) {
+//       // Agar callback false qaytarsa
+//       return false;
+//     }
+//   }
+//   return true;
+// };
+
+// let arr = [2, 4, 8, 10, 2, 8];
+// let evenCheck = arr.customEvery((el, i, arr) => el % 2 === 0);
+
+// console.log(evenCheck); // Natija: true
+
+// ! reduce → customReduce
+
+// Array.prototype.customReduce = function (callback, initialValue) {
+//   let acc = initialValue !== undefined ? initialValue : this[0];
+//   let startIndex = initialValue !== undefined ? 0 : 1;
+//   for (let i = startIndex; i < this.length; i++) {
+//     acc = callback(acc, this[i], i, this);
+//   }
+//   return acc;
+// };
+// let arr = [2, 4, 8, 10, 2, 8];
+// let sum = arr.customReduce((acc, el) => {
+//   return acc + el;
+// }, 0);
+
+// console.log(sum);
+
+// ! customFindIndex
+
+Array.prototype.customFindIndex = function (callback) {
+  for (let i = 0; i < this.length; i++) {
+    if (callback(this[i], i, this)) {
+      return i;
+    }
+  }
+  return -1;
+};
+
+let numbers = [10, 5, 7, 105, 30];
+let index = numbers.customFindIndex((el) => el > 2);
+console.log(index); // Chiqarish: 3
+
+//! = = = = = = = //
+
+Array.prototype.customSplice = function (start, deleteCount, ...items) {
+  // Yangi array yaratamiz va elementlarni qo'shamiz
+  let removedItems = [];
+
+  // Arrayning nusxasini yaratamiz
+  let arr = [...this];
+
+  // O'chiriladigan elementlarni to'playmiz
+  for (let i = start; i < start + deleteCount && i < arr.length; i++) {
+    removedItems.push(arr[i]);
+  }
+
+  // Qayta o'zgartirilgan arrayni yaratamiz
+  let newArr = arr
+    .slice(0, start)
+    .concat(items)
+    .concat(arr.slice(start + deleteCount));
+
+  // Original arrayni o'zgartirish
+  this.length = 0;
+  this.push(...newArr);
+
+  // O'chirilgan elementlarni qaytaradi
+  return removedItems;
+};
+
+// Misollar:
+
+let arr = [1, 2, 3, 4, 5];
+
+let removed = arr.customSplice(1, 2, "a", "b");
+console.log(arr); // Natija: [1, 'a', 'b', 4, 5]
+console.log(removed); // Natija: [2, 3]
