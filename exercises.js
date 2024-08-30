@@ -1,4 +1,4 @@
-//! Exercise1
+// Exercise1
 
 // let str = "Abdulaziz Programmer";
 
@@ -20,7 +20,7 @@
 
 // console.log(str.lowerCase());
 
-//! Exercise2
+// Exercise2
 
 // let n = 123.55461932;
 
@@ -31,7 +31,7 @@
 
 // console.log(n.int());
 
-//! Exercise3
+// Exercise3
 
 // Array.prototype.fltr = function (callback) {
 //   let res = [];
@@ -52,7 +52,7 @@
 
 // console.log(evenArr);
 
-//! Exercise4
+// Exercise4
 
 // Array.prototype.sm = function (callback) {
 //   for (let i in this) {
@@ -71,7 +71,7 @@
 
 // console.log(evenCheck);
 
-//! Exercise5
+// Exercise5
 
 // Array.prototype.fnd = function (callback) {
 //   for (let i in this) {
@@ -90,7 +90,7 @@
 
 // console.log(firstEven);
 
-//! Exercise6
+// Exercise6
 
 // let arr = [5, 1, 3, 8, 9];
 
