@@ -373,3 +373,39 @@ let arr = [1, 2, 3, 4, 5];
 let removed = arr.customSplice(1, 2, "a", "b");
 console.log(arr); // Natija: [1, 'a', 'b', 4, 5]
 console.log(removed); // Natija: [2, 3]
+
+// ==
+function Person(firstName, lastName, middleName, age, weight) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.middleName = middleName;
+  this.age = age;
+  this.weight = weight;
+  if (!new.target) {
+    return new Person(firstName, lastName, middleName, age, weight);
+  }
+}
+
+Person.prototype.getInfo = function () {
+  return `${this.firstName} ${this.lastName}'s age is ${this.age}`;
+};
+
+let p0 = Person("John", "Doe", "Alex", 30, 100);
+let p1 = Person("John1", "Doe1", "Alex1", 35, 80);
+let p2 = Person("John2", "Doe2", "Alex2", 40, 120);
+let p3 = Person("John3", "Doe3", "Alex3", 20, 80);
+
+let people = [p0, p1, p2, p3];
+
+console.log(people);
+
+console.log("p0", p0);
+console.log("p1", p1);
+
+console.log(p0);
+
+console.log(p0);
+
+console.log(p0.propertyIsEnumerable("firstName"));
+
+// ! animal
